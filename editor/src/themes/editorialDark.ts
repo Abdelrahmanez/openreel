@@ -1,0 +1,25 @@
+import type { ThemeSpec } from "./types";
+
+export const editorialDark: ThemeSpec = {
+  id: "editorial-dark",
+  name: "Editorial Dark",
+  tagline: "Obsidian slate, crisp white & electric cyan",
+  isDark: true,
+  bg: "#0B0F19",
+  surface: "#121827",
+  surfaceElevated: "#192236",
+  text: "#F8FAFC",
+  muted: "#94A3B8",
+  accent: "#38BDF8",
+  accentText: "#06121E",
+  highlightBg: "#F59E0B",
+  highlightText: "#0B0F19",
+  border: "rgba(148, 163, 184, 0.22)",
+  borderWidth: 2,
+  radius: 24,
+  cardShadow: "0 20px 50px rgba(0, 0, 0, 0.45)",
+  backdropPattern: "glow-grid",
+  captionBg: "rgba(11, 15, 25, 0.92)",
+  captionText: "#F8FAFC",
+  captionAccent: "#38BDF8",
+};

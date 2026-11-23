@@ -1,0 +1,26 @@
+# Dependencies & caches
+node_modules/
+editor/node_modules/
+.remotion/
+editor/.remotion/
+.cache/
+
+# Rendered outputs & raw footage (keep docs/previews/*.png tracked!)
+editor/out/
+out/
+reels/*/raw/
+reels/*/out/
+reels/*/assets/raw/
+*.mp4
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.m4a
+
+# OS & env
+.DS_Store
+Thumbs.db
+.env
+.env.*
+*.log

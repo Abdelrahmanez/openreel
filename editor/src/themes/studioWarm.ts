@@ -1,0 +1,25 @@
+import type { ThemeSpec } from "./types";
+
+export const studioWarm: ThemeSpec = {
+  id: "studio-warm",
+  name: "Studio Warm",
+  tagline: "Warm linen, espresso ink & terracotta cards",
+  isDark: false,
+  bg: "#F6F0E8",
+  surface: "#FFFBF5",
+  surfaceElevated: "#EFE6DA",
+  text: "#1D1815",
+  muted: "#6B5E53",
+  accent: "#D97706",
+  accentText: "#FFFFFF",
+  highlightBg: "#0F766E",
+  highlightText: "#FFFBF5",
+  border: "rgba(29, 24, 21, 0.16)",
+  borderWidth: 2,
+  radius: 28,
+  cardShadow: "0 18px 40px rgba(29, 24, 21, 0.08)",
+  backdropPattern: "warm-dots",
+  captionBg: "#1D1815",
+  captionText: "#FFFBF5",
+  captionAccent: "#FBBF24",
+};

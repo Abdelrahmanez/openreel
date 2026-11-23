@@ -1,0 +1,81 @@
+{
+  "themeId": "editorial-dark",
+  "lang": "en",
+  "tag": "OpenReel Demo",
+  "handle": "@openreel",
+  "scenes": [
+    {
+      "type": "hook",
+      "durationFrames": 75,
+      "title": "One Prompt Builds Your Entire Reel",
+      "highlightWord": "Entire",
+      "subtitle": "From raw idea to 1080x1920 video — no editing guesswork."
+    },
+    {
+      "type": "compare",
+      "durationFrames": 75,
+      "heading": "Why Most AI Videos Feel Generic",
+      "leftTitle": "ONE LONG CHAT",
+      "leftBody": "Forgets your voice, breaks pacing, and looks like every AI page.",
+      "rightTitle": "OPENREEL FACTORY",
+      "rightBody": "Locks your brand, adapts to your tools, and renders real scenes."
+    },
+    {
+      "type": "steps",
+      "durationFrames": 90,
+      "heading": "How It Works",
+      "steps": [
+        {
+          "title": "Pick Your Visual Theme",
+          "detail": "Choose from 4 real 1080x1920 designs rendered for your niche."
+        },
+        {
+          "title": "Match Your Available Tools",
+          "detail": "Works 100% free in code or pairs with your camera and AI tools."
+        },
+        {
+          "title": "Render Video + Cover",
+          "detail": "Synced captions, safe IG/TikTok framing, and ready-to-post copy."
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "durationFrames": 60,
+      "value": 100,
+      "suffix": "%",
+      "label": "Open Source & Customizable",
+      "detail": "Works seamlessly with both Antigravity and Claude Code."
+    }
+  ],
+  "captions": [
+    {
+      "seg": 0,
+      "text": "One prompt turns an empty folder into your reel factory",
+      "startMs": 0,
+      "endMs": 2400,
+      "highlight": ["reel", "factory"]
+    },
+    {
+      "seg": 1,
+      "text": "Stop pasting giant chats that forget your style",
+      "startMs": 2500,
+      "endMs": 4900,
+      "highlight": ["style"]
+    },
+    {
+      "seg": 2,
+      "text": "Pick a real theme and adapt to your own tools",
+      "startMs": 5000,
+      "endMs": 7900,
+      "highlight": ["theme", "tools"]
+    },
+    {
+      "seg": 3,
+      "text": "100% open source for Antigravity and Claude Code",
+      "startMs": 8000,
+      "endMs": 10000,
+      "highlight": ["open", "source"]
+    }
+  ]
+}

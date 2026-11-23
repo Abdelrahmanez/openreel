@@ -1,0 +1,25 @@
+import type { ThemeSpec } from "./types";
+
+export const techBlueprint: ThemeSpec = {
+  id: "tech-blueprint",
+  name: "Tech Blueprint",
+  tagline: "Midnight schematic grid, cyan vectors & emerald proof",
+  isDark: true,
+  bg: "#081326",
+  surface: "#0D1E3A",
+  surfaceElevated: "#12294D",
+  text: "#F0F9FF",
+  muted: "#7DD3FC",
+  accent: "#10B981",
+  accentText: "#042319",
+  highlightBg: "#FBBF24",
+  highlightText: "#081326",
+  border: "rgba(56, 189, 248, 0.35)",
+  borderWidth: 2,
+  radius: 12,
+  cardShadow: "0 0 0 1px rgba(56, 189, 248, 0.25), 0 20px 45px rgba(2, 8, 23, 0.6)",
+  backdropPattern: "blueprint",
+  captionBg: "rgba(8, 19, 38, 0.94)",
+  captionText: "#F0F9FF",
+  captionAccent: "#10B981",
+};

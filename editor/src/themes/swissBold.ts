@@ -1,0 +1,25 @@
+import type { ThemeSpec } from "./types";
+
+export const swissBold: ThemeSpec = {
+  id: "swiss-bold",
+  name: "Swiss Bold",
+  tagline: "Gallery off-white, sharp ink & vermilion punch",
+  isDark: false,
+  bg: "#F7F7F4",
+  surface: "#FFFFFF",
+  surfaceElevated: "#EEEEEC",
+  text: "#0E0E10",
+  muted: "#52525B",
+  accent: "#E63946",
+  accentText: "#FFFFFF",
+  highlightBg: "#FACC15",
+  highlightText: "#0E0E10",
+  border: "#0E0E10",
+  borderWidth: 3,
+  radius: 0,
+  cardShadow: "8px 8px 0px #0E0E10",
+  backdropPattern: "swiss-frame",
+  captionBg: "#0E0E10",
+  captionText: "#FFFFFF",
+  captionAccent: "#FACC15",
+};

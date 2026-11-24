@@ -2,21 +2,22 @@ import React from "react";
 import { Composition } from "remotion";
 import demoCover from "../../reels/00_demo_reel/cover.json";
 import demoReel from "../../reels/00_demo_reel/reel.json";
+import arabicCover from "../../reels/01_arabic_demo/cover.json";
+import arabicReel from "../../reels/01_arabic_demo/reel.json";
 import { BRAND_CONFIG } from "./brand/brand.config";
 import {
   CoverComposition,
   type CoverProps,
 } from "./compositions/CoverComposition";
-import { ReelTemplate, type ReelProps } from "./compositions/ReelTemplate";
+import {
+  ReelTemplate,
+  computeReelTotalFrames,
+  type ReelProps,
+} from "./compositions/ReelTemplate";
 import {
   ThemePreview,
   type ThemePreviewProps,
 } from "./compositions/ThemePreview";
-
-const getTotalFrames = (props: ReelProps) => {
-  const sum = props.scenes.reduce((acc, s) => acc + s.durationFrames, 0);
-  return Math.max(30, sum);
-};
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -34,6 +35,9 @@ export const RemotionRoot: React.FC = () => {
             lang: BRAND_CONFIG.lang,
             tag: BRAND_CONFIG.nicheTag,
             handle: BRAND_CONFIG.handle,
+            accentOverride: BRAND_CONFIG.accentOverride,
+            highlightOverride: BRAND_CONFIG.highlightOverride,
+            fontPreset: BRAND_CONFIG.fontPreset,
             title: "Your Idea to Final Reel",
             subtitle: "AI guides every step — zero editing guesswork",
           } satisfies ThemePreviewProps
@@ -43,14 +47,14 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="ReelTemplate"
         component={ReelTemplate}
-        durationInFrames={getTotalFrames(demoReel as ReelProps)}
+        durationInFrames={computeReelTotalFrames(demoReel as ReelProps)}
         fps={30}
         width={1080}
         height={1920}
         calculateMetadata={({ props }) => ({
-          durationInFrames: getTotalFrames(props as unknown as ReelProps),
+          durationInFrames: computeReelTotalFrames(props as unknown as ReelProps),
         })}
-        defaultProps={demoReel as ReelProps}
+        defaultProps={{ ...(demoReel as ReelProps), words: [] }}
       />
 
       <Composition
@@ -66,12 +70,12 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="DemoReel"
         component={ReelTemplate}
-        durationInFrames={getTotalFrames(demoReel as ReelProps)}
+        durationInFrames={computeReelTotalFrames(demoReel as ReelProps)}
         fps={30}
         width={1080}
         height={1920}
         calculateMetadata={({ props }) => ({
-          durationInFrames: getTotalFrames(props as unknown as ReelProps),
+          durationInFrames: computeReelTotalFrames(props as unknown as ReelProps),
         })}
         defaultProps={demoReel as ReelProps}
       />
@@ -84,6 +88,29 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
         defaultProps={demoCover as CoverProps}
+      />
+
+      <Composition
+        id="ArabicDemoReel"
+        component={ReelTemplate}
+        durationInFrames={computeReelTotalFrames(arabicReel as ReelProps)}
+        fps={30}
+        width={1080}
+        height={1920}
+        calculateMetadata={({ props }) => ({
+          durationInFrames: computeReelTotalFrames(props as unknown as ReelProps),
+        })}
+        defaultProps={arabicReel as ReelProps}
+      />
+
+      <Composition
+        id="ArabicDemoCover"
+        component={CoverComposition}
+        durationInFrames={1}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={arabicCover as CoverProps}
       />
     </>
   );

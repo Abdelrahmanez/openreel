@@ -1,6 +1,6 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import type { Lang, ThemeSpec } from "../themes/types";
+import type { FontPreset, Lang, ThemeSpec } from "../themes/types";
 import { getFontFamilies } from "./fonts";
 
 export interface StepItem {
@@ -13,6 +13,7 @@ interface StepListProps {
   lang: Lang;
   heading: string;
   steps: StepItem[];
+  fontPreset?: FontPreset;
 }
 
 export const StepList: React.FC<StepListProps> = ({
@@ -20,10 +21,11 @@ export const StepList: React.FC<StepListProps> = ({
   lang,
   heading,
   steps,
+  fontPreset,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const fonts = getFontFamilies(lang);
+  const fonts = getFontFamilies(lang, fontPreset);
   const isRtl = lang === "ar";
 
   return (
@@ -32,29 +34,42 @@ export const StepList: React.FC<StepListProps> = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: 24,
+        gap: 22,
       }}
     >
       <div
         style={{
           fontFamily: fonts.display,
           fontSize: 54,
-          fontWeight: 800,
+          fontWeight: 900,
           color: theme.text,
-          marginBottom: 8,
+          marginBottom: 6,
+          display: "flex",
+          alignItems: "center",
+          gap: 16,
         }}
       >
-        {heading}
+        <span
+          style={{
+            width: 14,
+            height: 44,
+            backgroundColor: theme.accent,
+            borderRadius: theme.radius === 0 ? 0 : 6,
+            display: "inline-block",
+          }}
+        />
+        <span>{heading}</span>
       </div>
 
       {steps.map((step, idx) => {
-        const delay = idx * 8;
+        const delay = idx * 10;
         const p = spring({
           frame: Math.max(0, frame - delay),
           fps,
-          config: { damping: 16, stiffness: 160 },
+          config: { damping: 16, stiffness: 170 },
         });
-        const y = interpolate(p, [0, 1], [32, 0]);
+        const y = interpolate(p, [0, 1], [34, 0]);
+        const isLast = idx === steps.length - 1;
         return (
           <div
             key={idx}
@@ -62,38 +77,46 @@ export const StepList: React.FC<StepListProps> = ({
               opacity: p,
               transform: `translateY(${y}px)`,
               backgroundColor: theme.surface,
-              border: `${theme.borderWidth}px solid ${theme.border}`,
+              border: `${theme.borderWidth}px solid ${
+                isLast ? theme.accent : theme.border
+              }`,
               borderRadius: theme.radius,
               boxShadow: theme.cardShadow,
-              padding: "30px 34px",
+              padding: "28px 34px",
               display: "flex",
               alignItems: "flex-start",
-              gap: 24,
+              gap: 22,
             }}
           >
             <div
+              dir="ltr"
               style={{
-                minWidth: 64,
-                height: 64,
+                unicodeBidi: "isolate",
+                minWidth: 66,
+                height: 66,
                 borderRadius: theme.radius === 0 ? 0 : 16,
-                backgroundColor: theme.accent,
-                color: theme.accentText,
+                backgroundColor: isLast ? theme.highlightBg : theme.accent,
+                color: isLast ? theme.highlightText : theme.accentText,
                 fontFamily: fonts.mono,
-                fontSize: 32,
+                fontSize: 30,
                 fontWeight: 700,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                border:
+                  theme.layoutStyle === "poster"
+                    ? `2px solid ${theme.border}`
+                    : "none",
               }}
             >
               0{idx + 1}
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
               <div
                 style={{
                   fontFamily: fonts.display,
                   fontSize: 38,
-                  fontWeight: 700,
+                  fontWeight: 800,
                   color: theme.text,
                 }}
               >
@@ -102,9 +125,9 @@ export const StepList: React.FC<StepListProps> = ({
               <div
                 style={{
                   fontFamily: fonts.body,
-                  fontSize: 29,
+                  fontSize: 28,
                   color: theme.muted,
-                  lineHeight: 1.4,
+                  lineHeight: 1.42,
                 }}
               >
                 {step.detail}

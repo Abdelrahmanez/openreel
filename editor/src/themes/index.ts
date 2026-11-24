@@ -18,14 +18,39 @@ export const THEME_LIST: ThemeSpec[] = [
   techBlueprint,
 ];
 
-export function getTheme(id: ThemeId, accentOverride?: string): ThemeSpec {
+export interface ThemeColorOverrides {
+  accentColor?: string;
+  highlightColor?: string;
+  bgColor?: string;
+}
+
+export function getTheme(
+  id: ThemeId,
+  override?: string | ThemeColorOverrides
+): ThemeSpec {
   const base = THEMES[id] ?? editorialDark;
-  if (!accentOverride) return base;
+  if (!override) return base;
+
+  const opts: ThemeColorOverrides =
+    typeof override === "string" ? { accentColor: override } : override;
+
   return {
     ...base,
-    accent: accentOverride,
-    captionAccent: accentOverride,
+    ...(opts.bgColor ? { bg: opts.bgColor } : {}),
+    ...(opts.accentColor
+      ? { accent: opts.accentColor, captionAccent: opts.accentColor }
+      : {}),
+    ...(opts.highlightColor ? { highlightBg: opts.highlightColor } : {}),
   };
 }
 
-export type { BrandConfig, Lang, ThemeId, ThemeSpec } from "./types";
+export type {
+  BrandConfig,
+  CaptionStyle,
+  FontPreset,
+  Lang,
+  ReelOverrides,
+  ThemeId,
+  ThemeSpec,
+  TransitionKind,
+} from "./types";

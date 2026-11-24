@@ -4,8 +4,9 @@ editor/node_modules/
 .remotion/
 editor/.remotion/
 .cache/
+editor/public/reel_media/
 
-# Rendered outputs & raw footage (keep docs/previews/*.png tracked!)
+# Rendered outputs & raw footage (keep docs/previews/*.png and editor/public/sfx/*.wav tracked!)
 editor/out/
 out/
 reels/*/raw/
@@ -15,6 +16,7 @@ reels/*/assets/raw/
 *.mov
 *.mkv
 *.wav
+!editor/public/sfx/*.wav
 *.mp3
 *.m4a
 

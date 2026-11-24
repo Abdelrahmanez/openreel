@@ -1,6 +1,6 @@
 import React from "react";
 import { CoverFrame } from "../kit";
-import { getTheme, type Lang, type ThemeId } from "../themes";
+import { getTheme, type FontPreset, type Lang, type ThemeId } from "../themes";
 
 export type CoverProps = {
   themeId: ThemeId;
@@ -11,6 +11,8 @@ export type CoverProps = {
   highlightWord?: string;
   subtitle?: string;
   accentOverride?: string;
+  highlightOverride?: string;
+  fontPreset?: FontPreset;
 };
 
 export const CoverComposition: React.FC<CoverProps> = ({
@@ -22,8 +24,13 @@ export const CoverComposition: React.FC<CoverProps> = ({
   highlightWord,
   subtitle,
   accentOverride,
+  highlightOverride,
+  fontPreset,
 }) => {
-  const theme = getTheme(themeId, accentOverride);
+  const theme = getTheme(themeId, {
+    accentColor: accentOverride,
+    highlightColor: highlightOverride,
+  });
   return (
     <CoverFrame
       theme={theme}
@@ -33,6 +40,7 @@ export const CoverComposition: React.FC<CoverProps> = ({
       title={title}
       highlightWord={highlightWord}
       subtitle={subtitle}
+      fontPreset={fontPreset}
     />
   );
 };

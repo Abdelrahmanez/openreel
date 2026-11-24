@@ -1,6 +1,6 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import type { Lang, ThemeSpec } from "../themes/types";
+import type { FontPreset, Lang, ThemeSpec } from "../themes/types";
 import { getFontFamilies } from "./fonts";
 
 interface CompareCardProps {
@@ -11,6 +11,7 @@ interface CompareCardProps {
   leftBody: string;
   rightTitle: string;
   rightBody: string;
+  fontPreset?: FontPreset;
 }
 
 export const CompareCard: React.FC<CompareCardProps> = ({
@@ -21,15 +22,16 @@ export const CompareCard: React.FC<CompareCardProps> = ({
   leftBody,
   rightTitle,
   rightBody,
+  fontPreset,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const fonts = getFontFamilies(lang);
+  const fonts = getFontFamilies(lang, fontPreset);
   const isRtl = lang === "ar";
 
   const p1 = spring({ frame, fps, config: { damping: 16, stiffness: 160 } });
   const p2 = spring({
-    frame: Math.max(0, frame - 8),
+    frame: Math.max(0, frame - 10),
     fps,
     config: { damping: 16, stiffness: 160 },
   });
@@ -37,19 +39,21 @@ export const CompareCard: React.FC<CompareCardProps> = ({
   return (
     <div
       dir={isRtl ? "rtl" : "ltr"}
-      style={{ display: "flex", flexDirection: "column", gap: 26 }}
+      style={{ display: "flex", flexDirection: "column", gap: 24 }}
     >
       <div
         style={{
           fontFamily: fonts.display,
           fontSize: 54,
-          fontWeight: 800,
+          fontWeight: 900,
           color: theme.text,
+          lineHeight: 1.2,
         }}
       >
         {heading}
       </div>
 
+      {/* Old / Generic card */}
       <div
         style={{
           opacity: p1,
@@ -57,7 +61,7 @@ export const CompareCard: React.FC<CompareCardProps> = ({
           backgroundColor: theme.surfaceElevated,
           border: `${theme.borderWidth}px solid ${theme.border}`,
           borderRadius: theme.radius,
-          padding: "36px 40px",
+          padding: "34px 38px",
           display: "flex",
           flexDirection: "column",
           gap: 12,
@@ -65,27 +69,55 @@ export const CompareCard: React.FC<CompareCardProps> = ({
       >
         <div
           style={{
-            fontFamily: fonts.mono,
-            fontSize: 28,
-            fontWeight: 700,
-            color: theme.muted,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          {leftTitle}
+          <span
+            style={{
+              fontFamily: fonts.mono,
+              fontSize: 26,
+              fontWeight: 700,
+              color: theme.muted,
+            }}
+          >
+            {leftTitle}
+          </span>
+          <span
+            style={{
+              width: 42,
+              height: 42,
+              borderRadius: theme.radius === 0 ? 0 : "50%",
+              backgroundColor: "rgba(224, 50, 43, 0.16)",
+              color: "#E0322B",
+              border: "2px solid #E0322B",
+              fontFamily: fonts.mono,
+              fontSize: 24,
+              fontWeight: 900,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            ✕
+          </span>
         </div>
         <div
           style={{
             fontFamily: fonts.body,
-            fontSize: 36,
+            fontSize: 35,
             fontWeight: 600,
             color: theme.text,
-            lineHeight: 1.4,
+            lineHeight: 1.42,
+            opacity: 0.85,
           }}
         >
           {leftBody}
         </div>
       </div>
 
+      {/* New / Winning card */}
       <div
         style={{
           opacity: p2,
@@ -94,7 +126,7 @@ export const CompareCard: React.FC<CompareCardProps> = ({
           border: `${Math.max(3, theme.borderWidth)}px solid ${theme.accent}`,
           borderRadius: theme.radius,
           boxShadow: theme.cardShadow,
-          padding: "40px 42px",
+          padding: "38px 40px",
           display: "flex",
           flexDirection: "column",
           gap: 12,
@@ -102,21 +134,46 @@ export const CompareCard: React.FC<CompareCardProps> = ({
       >
         <div
           style={{
-            fontFamily: fonts.mono,
-            fontSize: 28,
-            fontWeight: 700,
-            color: theme.accent,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          {rightTitle}
+          <span
+            style={{
+              fontFamily: fonts.mono,
+              fontSize: 26,
+              fontWeight: 800,
+              color: theme.accent,
+            }}
+          >
+            {rightTitle}
+          </span>
+          <span
+            style={{
+              width: 44,
+              height: 44,
+              borderRadius: theme.radius === 0 ? 0 : "50%",
+              backgroundColor: theme.accent,
+              color: theme.accentText,
+              fontFamily: fonts.mono,
+              fontSize: 24,
+              fontWeight: 900,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            ✓
+          </span>
         </div>
         <div
           style={{
             fontFamily: fonts.body,
-            fontSize: 38,
-            fontWeight: 700,
+            fontSize: 37,
+            fontWeight: 800,
             color: theme.text,
-            lineHeight: 1.4,
+            lineHeight: 1.42,
           }}
         >
           {rightBody}

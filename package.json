@@ -1,0 +1,23 @@
+{
+  "name": "openreel",
+  "version": "2.0.0",
+  "description": "Open-source AI-driven vertical video factory (9:16 Reels, TikTok, Shorts) powered by Node.js + Remotion 4",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "check": "node scripts/check-env.mjs",
+    "setup": "npm --prefix editor install && node scripts/generate-sfx.mjs && node scripts/check-env.mjs",
+    "sfx": "node scripts/generate-sfx.mjs",
+    "previews": "node scripts/render-previews.mjs",
+    "cut": "node scripts/auto-cut.mjs",
+    "transcribe": "node scripts/transcribe.mjs",
+    "captions": "node scripts/srt-to-captions.mjs",
+    "render": "node scripts/render-reel.mjs",
+    "studio": "npm --prefix editor run dev",
+    "typecheck": "npm --prefix editor run typecheck",
+    "sync-skills": "node scripts/sync-skills.mjs"
+  }
+}

@@ -9,7 +9,7 @@ description: >-
 
 ## Read First
 1. `docs/STRATEGY.md` (niche, target audience, language, face/faceless preference)
-2. `docs/TOOL_MODE.md` (so every proposed idea actually fits the creator's available tools)
+2. `docs/TOOL_MODE.md` (so every proposed idea fits the creator's available tools)
 3. Existing folders inside `reels/` to avoid repeating topics
 
 ## The 5-Point Idea Filter (Every Idea Must Pass All 5)
@@ -24,6 +24,6 @@ Present **5 ranked ideas** in the creator's language, each with:
 - Working title / Frame-0 hook promise
 - What the viewer walks away understanding
 - Proof / demo source
-- Visual plan summary (for their Mode 1–4)
+- Recommended scene mix from OpenReel's 10 scene types (for their Mode 1–4)
 
 Once the creator picks an idea, create `reels/NN_slug/` (e.g., `reels/01_my_topic/`) and move directly into `make-script`.

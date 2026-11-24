@@ -1,51 +1,70 @@
 {
   "themeId": "editorial-dark",
   "lang": "en",
-  "tag": "OpenReel Demo",
+  "tag": "OpenReel v2.0",
   "handle": "@openreel",
+  "overrides": {
+    "captionStyle": "karaoke",
+    "transition": "fade",
+    "transitionFrames": 8,
+    "showProgressBar": true,
+    "sfxEnabled": true
+  },
   "scenes": [
     {
       "type": "hook",
       "durationFrames": 75,
+      "kicker": "OPEN SOURCE STUDIO",
       "title": "One Prompt Builds Your Entire Reel",
       "highlightWord": "Entire",
-      "subtitle": "From raw idea to 1080x1920 video — no editing guesswork."
+      "subtitle": "From raw clip or zero footage to final 1080x1920 MP4 + cover."
     },
     {
       "type": "compare",
-      "durationFrames": 75,
-      "heading": "Why Most AI Videos Feel Generic",
-      "leftTitle": "ONE LONG CHAT",
-      "leftBody": "Forgets your voice, breaks pacing, and looks like every AI page.",
+      "durationFrames": 85,
+      "heading": "Why Most AI Edits Look Identical",
+      "leftTitle": "GENERIC PROMPT",
+      "leftBody": "Forgets your taste, looks like every template, and forces manual fixes.",
       "rightTitle": "OPENREEL FACTORY",
-      "rightBody": "Locks your brand, adapts to your tools, and renders real scenes."
+      "rightBody": "Saves your brand & style files, cuts silences, adds captions, motion, and SFX."
     },
     {
       "type": "steps",
-      "durationFrames": 90,
-      "heading": "How It Works",
+      "durationFrames": 95,
+      "heading": "How It Works Automatically",
       "steps": [
         {
-          "title": "Pick Your Visual Theme",
-          "detail": "Choose from 4 real 1080x1920 designs rendered for your niche."
+          "title": "Pick 1 of 4 Custom Themes",
+          "detail": "Rendered for your niche before you write a single line."
         },
         {
-          "title": "Match Your Available Tools",
-          "detail": "Works 100% free in code or pairs with your camera and AI tools."
+          "title": "Drop Camera Video or Pure Code",
+          "detail": "Auto-cuts dead air, aligns captions, and animates motion."
         },
         {
-          "title": "Render Video + Cover",
-          "detail": "Synced captions, safe IG/TikTok framing, and ready-to-post copy."
+          "title": "Tweak Anything in Plain Chat",
+          "detail": "Say \"make the hook bigger\" and re-render in seconds."
         }
       ]
     },
     {
-      "type": "stat",
-      "durationFrames": 60,
-      "value": 100,
-      "suffix": "%",
-      "label": "Open Source & Customizable",
-      "detail": "Works seamlessly with both Antigravity and Claude Code."
+      "type": "bar-chart",
+      "durationFrames": 85,
+      "heading": "Setup to First Export",
+      "bars": [
+        { "label": "Manual Timeline + Captions", "value": 120, "suffix": " min" },
+        { "label": "Generic AI Template Tweaks", "value": 45, "suffix": " min" },
+        { "label": "OpenReel Guided Pipeline", "value": 6, "suffix": " min", "highlight": true }
+      ],
+      "source": "Zero paid tools required • Pure Node.js + Remotion 4"
+    },
+    {
+      "type": "cta",
+      "durationFrames": 70,
+      "kicker": "MIT LICENSE • FREE",
+      "title": "Tools Edit Video. Your Taste Wins.",
+      "highlightWord": "Taste",
+      "subtitle": "Works inside Antigravity & Claude Code — EN & AR (RTL)."
     }
   ],
   "captions": [
@@ -58,24 +77,51 @@
     },
     {
       "seg": 1,
-      "text": "Stop pasting giant chats that forget your style",
-      "startMs": 2500,
-      "endMs": 4900,
-      "highlight": ["style"]
+      "text": "Generic prompts make every creator look the same",
+      "startMs": 2450,
+      "endMs": 5050,
+      "highlight": ["same"]
     },
     {
       "seg": 2,
-      "text": "Pick a real theme and adapt to your own tools",
-      "startMs": 5000,
-      "endMs": 7900,
-      "highlight": ["theme", "tools"]
+      "text": "OpenReel saves your style, auto-cuts pauses, and syncs SFX",
+      "startMs": 5100,
+      "endMs": 8050,
+      "highlight": ["style", "auto-cuts", "sfx"]
     },
     {
       "seg": 3,
+      "text": "Cut production time down to minutes without paid tools",
+      "startMs": 8100,
+      "endMs": 10700,
+      "highlight": ["minutes"]
+    },
+    {
+      "seg": 4,
       "text": "100% open source for Antigravity and Claude Code",
-      "startMs": 8000,
-      "endMs": 10000,
+      "startMs": 10750,
+      "endMs": 13000,
       "highlight": ["open", "source"]
     }
+  ],
+  "words": [
+    { "text": "One", "startMs": 0, "endMs": 220, "highlight": false },
+    { "text": "prompt", "startMs": 220, "endMs": 520, "highlight": false },
+    { "text": "turns", "startMs": 520, "endMs": 780, "highlight": false },
+    { "text": "an", "startMs": 780, "endMs": 920, "highlight": false },
+    { "text": "empty", "startMs": 920, "endMs": 1220, "highlight": false },
+    { "text": "folder", "startMs": 1220, "endMs": 1540, "highlight": false },
+    { "text": "into", "startMs": 1540, "endMs": 1760, "highlight": false },
+    { "text": "your", "startMs": 1760, "endMs": 1950, "highlight": false },
+    { "text": "reel", "startMs": 1950, "endMs": 2160, "highlight": true },
+    { "text": "factory", "startMs": 2160, "endMs": 2400, "highlight": true },
+    { "text": "Generic", "startMs": 2450, "endMs": 2800, "highlight": false },
+    { "text": "prompts", "startMs": 2800, "endMs": 3180, "highlight": false },
+    { "text": "make", "startMs": 3180, "endMs": 3450, "highlight": false },
+    { "text": "every", "startMs": 3450, "endMs": 3780, "highlight": false },
+    { "text": "creator", "startMs": 3780, "endMs": 4200, "highlight": false },
+    { "text": "look", "startMs": 4200, "endMs": 4450, "highlight": false },
+    { "text": "the", "startMs": 4450, "endMs": 4680, "highlight": false },
+    { "text": "same", "startMs": 4680, "endMs": 5050, "highlight": true }
   ]
 }

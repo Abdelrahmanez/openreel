@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import type { Lang, ThemeSpec } from "../themes/types";
+import type { FontPreset, Lang, ThemeSpec } from "../themes/types";
 import { Backdrop } from "./Backdrop";
 import { TagBadge } from "./TagBadge";
 import { getFontFamilies } from "./fonts";
@@ -13,6 +13,7 @@ interface CoverFrameProps {
   title: string;
   highlightWord?: string;
   subtitle?: string;
+  fontPreset?: FontPreset;
 }
 
 export const CoverFrame: React.FC<CoverFrameProps> = ({
@@ -23,9 +24,11 @@ export const CoverFrame: React.FC<CoverFrameProps> = ({
   title,
   highlightWord,
   subtitle,
+  fontPreset,
 }) => {
-  const fonts = getFontFamilies(lang);
+  const fonts = getFontFamilies(lang, fontPreset);
   const isRtl = lang === "ar";
+  const isPoster = theme.layoutStyle === "poster";
 
   const renderTitle = () => {
     if (!highlightWord || !title.includes(highlightWord)) return title;
@@ -37,9 +40,10 @@ export const CoverFrame: React.FC<CoverFrameProps> = ({
           style={{
             backgroundColor: theme.highlightBg,
             color: theme.highlightText,
-            padding: "6px 22px",
+            padding: isRtl ? "2px 24px 10px" : "6px 22px",
             borderRadius: theme.radius === 0 ? 0 : 16,
             display: "inline-block",
+            border: isPoster ? `3px solid ${theme.border}` : "none",
           }}
         >
           {highlightWord}
@@ -51,7 +55,7 @@ export const CoverFrame: React.FC<CoverFrameProps> = ({
 
   return (
     <AbsoluteFill>
-      <Backdrop theme={theme} />
+      <Backdrop theme={theme} animate={false} />
       {/* Safe central 1080x1350 zone (top/bottom 285px margin for 3:4 profile grid crop) */}
       <div
         dir={isRtl ? "rtl" : "ltr"}
@@ -59,35 +63,55 @@ export const CoverFrame: React.FC<CoverFrameProps> = ({
           position: "absolute",
           top: 310,
           bottom: 310,
-          left: 76,
-          right: 76,
+          left: 72,
+          right: 72,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
         }}
       >
-        <TagBadge theme={theme} lang={lang} label={tag} secondary={handle} />
+        <TagBadge
+          theme={theme}
+          lang={lang}
+          label={tag}
+          secondary={handle}
+          fontPreset={fontPreset}
+        />
 
         <div
           style={{
+            position: "relative",
             backgroundColor: theme.surface,
             border: `${Math.max(3, theme.borderWidth)}px solid ${theme.border}`,
             borderRadius: theme.radius,
             boxShadow: theme.cardShadow,
-            padding: "68px 56px",
+            padding: "64px 54px",
             display: "flex",
             flexDirection: "column",
-            gap: 30,
+            gap: 28,
+            overflow: "hidden",
           }}
         >
           <div
             style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: isPoster ? 12 : 8,
+              background: `linear-gradient(90deg, ${theme.accent}, ${theme.highlightBg})`,
+            }}
+          />
+
+          <div
+            style={{
               fontFamily: fonts.display,
-              fontSize: isRtl ? 96 : 98,
+              fontSize: isRtl ? 90 : 94,
               fontWeight: 900,
               lineHeight: isRtl ? 1.24 : 1.08,
               color: theme.text,
               letterSpacing: isRtl ? 0 : -2,
+              marginTop: 6,
             }}
           >
             {renderTitle()}
@@ -97,10 +121,10 @@ export const CoverFrame: React.FC<CoverFrameProps> = ({
             <div
               style={{
                 fontFamily: fonts.body,
-                fontSize: 38,
+                fontSize: 36,
                 fontWeight: 600,
                 color: theme.muted,
-                lineHeight: 1.4,
+                lineHeight: 1.42,
               }}
             >
               {subtitle}
@@ -109,14 +133,17 @@ export const CoverFrame: React.FC<CoverFrameProps> = ({
         </div>
 
         <div
+          dir="ltr"
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             fontFamily: fonts.mono,
-            fontSize: 28,
-            fontWeight: 600,
+            fontSize: 26,
+            fontWeight: 700,
             color: theme.muted,
+            borderTop: `1.5px solid ${theme.subtleBorder}`,
+            paddingTop: 18,
           }}
         >
           <span>{theme.name.toUpperCase()}</span>

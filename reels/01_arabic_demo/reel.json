@@ -1,0 +1,88 @@
+{
+  "themeId": "studio-warm",
+  "lang": "ar",
+  "tag": "بنيتها بإيدي • OpenReel",
+  "handle": "@openreel",
+  "overrides": {
+    "captionStyle": "karaoke",
+    "transition": "fade",
+    "transitionFrames": 8,
+    "showProgressBar": true,
+    "sfxEnabled": true
+  },
+  "scenes": [
+    {
+      "type": "hook",
+      "durationFrames": 75,
+      "title": "ليه مونتاج الـ AI كله طالع شبه الباقي؟",
+      "highlightWord": "شبه",
+      "subtitle": "سيستم مفتوح المصدر بيفهم ذوقك ويحفظه في ملفات"
+    },
+    {
+      "type": "compare",
+      "durationFrames": 85,
+      "heading": "الفرق بين البرومبت والسيستم",
+      "leftTitle": "برومبت جاهز",
+      "leftBody": "بينسى أسلوبك كل مرة ويطلع نفس القالب المكرر عند الكل.",
+      "rightTitle": "OPENREEL FACTORY",
+      "rightBody": "بيحفظ هويتك، يقص الصمت، ويحط كابشن وموشن وساوند إفيكتس."
+    },
+    {
+      "type": "steps",
+      "durationFrames": 95,
+      "heading": "الشغل بيمشي في ٣ خطوات",
+      "steps": [
+        {
+          "title": "١. اختار من ٤ تصاميم لمجالك",
+          "detail": "بتشوفهم بعينك بالعربي قبل ما تكتب كلمة واحدة."
+        },
+        {
+          "title": "٢. حط الفيديو أو اشتغل بالكود",
+          "detail": "بيقص الفراغات لوحده ويظبط الكابشن والموشن."
+        },
+        {
+          "title": "٣. عدّل بالكلام عادي",
+          "detail": "تقوله «كبّر الهوك» يعدّل الفريم ويحفظ ذوقك."
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "durationFrames": 75,
+      "quote": "الأدوات كلها بقت تعمل مونتاج.. بس ذوقك هو اللي بيفرق.",
+      "highlightWord": "ذوقك",
+      "author": "OpenReel v2.0",
+      "source": "مجاني 100% • MIT Open Source"
+    }
+  ],
+  "captions": [
+    {
+      "seg": 0,
+      "text": "اللي بياخد برومبت جاهز فيديوهاته بتطلع شبه الباقي",
+      "startMs": 0,
+      "endMs": 2400,
+      "highlight": ["شبه", "الباقي"]
+    },
+    {
+      "seg": 1,
+      "text": "OpenReel بيحفظ ذوقك وهويتك في ملفات ثابتة",
+      "startMs": 2450,
+      "endMs": 5100,
+      "highlight": ["ذوقك", "وهويتك"]
+    },
+    {
+      "seg": 2,
+      "text": "بيقص الفراغات ويحط الكابشن والموشن والساوند إفيكتس",
+      "startMs": 5150,
+      "endMs": 8150,
+      "highlight": ["الكابشن", "والموشن"]
+    },
+    {
+      "seg": 3,
+      "text": "قوله كبّر الهوك يعدّل فوراً من غير تعقيد",
+      "startMs": 8200,
+      "endMs": 10400,
+      "highlight": ["كبّر", "الهوك"]
+    }
+  ]
+}

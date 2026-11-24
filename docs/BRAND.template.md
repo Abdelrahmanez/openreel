@@ -1,12 +1,15 @@
 # Brand & Visual Identity (Template)
 
-> Generated during `start-factory` onboarding and saved as `docs/BRAND.md` (and synced to `editor/src/brand/brand.config.ts`).
+> Generated during `start-factory` onboarding and saved as `docs/BRAND.md` (synced to `editor/src/brand/brand.config.ts`).
 
 - **Selected Theme:** `<editorial-dark | swiss-bold | studio-warm | tech-blueprint>`
 - **Custom Accent Color (optional):** `<default | #HEX>`
-- **Direction (`dir`):** `<rtl | ltr>`
-- **Display Font Style:** `<Cairo (Arabic) / Space Grotesk & Inter (English)>`
+- **Custom Highlight Color (optional):** `<default | #HEX>`
+- **Direction (`dir`) & Font Preset:** `<rtl | ltr>` · `<default (Alexandria/SpaceGrotesk) | cairo>`
 - **Handle Watermark:** `@<handle>`
+- **Caption Style Preference:** `<karaoke | box | pill | minimal>`
+- **Default Transition & SFX:** `<fade | slide | wipe | cut>` · SFX `<enabled | muted>`
+- **Taste Overrides (`brand.config.ts` defaults):** `hookScale: 1`, `captionScale: 1`, `showProgressBar: true`
 - **Voice & Tone:** `<e.g. Direct, warm, friend-over-coffee clarity — zero generic AI filler>`
 - **On-Screen Safety Rules:**
   - Hook headline visible from Frame 0 (no fade-in from black).

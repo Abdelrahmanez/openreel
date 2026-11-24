@@ -19,7 +19,7 @@ Write everything in the reel's language/dialect (`ar` or `en`):
    - **Lines 2–4:** Extra bonus detail or takeaway + natural search keywords (plus the exact keyword CTA if it's a giveaway reel)
    - **Sources** (if applicable) + **3–5 relevant hashtags** (never > 5)
 2. **TikTok Caption:**
-   - 1–2 punchy lines with primary search words right at the beginning + 3–5 hashtags. (Upload the clean `.mp4`, never an IG-watermarked file.)
+   - 1–2 punchy lines with primary search words right at the beginning + 3–5 hashtags. (Upload clean `out/reel.mp4`, never an IG-watermarked file.)
 3. **YouTube Shorts:**
    - **Title (<= 60 chars):** clear curiosity/value hook
    - **Description:** 2 short lines + sources + 2–3 hashtags

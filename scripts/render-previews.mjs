@@ -20,6 +20,8 @@ function parseArgs(argv) {
     lang: "en",
     out: path.join(ROOT, "docs", "previews"),
     accent: undefined,
+    highlight: undefined,
+    theme: undefined,
   };
   for (let i = 0; i < argv.length; i++) {
     const key = argv[i];
@@ -43,11 +45,14 @@ if (!fs.existsSync(path.join(EDITOR_DIR, "node_modules"))) {
   process.exit(1);
 }
 
+const themesToRender =
+  opts.theme && THEME_IDS.includes(opts.theme) ? [opts.theme] : THEME_IDS;
+
 const remotionCli = path.join(EDITOR_DIR, "node_modules", "@remotion", "cli", "remotion-cli.js");
 const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "openreel-previews-"));
 
 try {
-  for (const themeId of THEME_IDS) {
+  for (const themeId of themesToRender) {
     const propsPath = path.join(tempDir, `${themeId}.json`);
     const outFile = path.join(outDir, `${themeId}.png`);
     const payload = {
@@ -58,6 +63,7 @@ try {
       handle: opts.handle,
       lang: opts.lang === "ar" ? "ar" : "en",
       ...(opts.accent ? { accentOverride: opts.accent } : {}),
+      ...(opts.highlight ? { highlightOverride: opts.highlight } : {}),
     };
     fs.writeFileSync(propsPath, JSON.stringify(payload), "utf8");
     console.log(`Rendering preview: ${themeId} -> ${outFile}`);
@@ -70,7 +76,7 @@ try {
       }
     );
   }
-  console.log(`\nAll 4 previews rendered into ${outDir}`);
+  console.log(`\nRendered ${themesToRender.length} preview(s) into ${outDir}`);
 } finally {
   fs.rmSync(tempDir, { recursive: true, force: true });
 }
